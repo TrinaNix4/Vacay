@@ -54,11 +54,44 @@ my3rdPartyLib is version 6.7.3
 
 NOTE: to add a gem... add it to your gemfile, then run bundle to install gem
 
-##devise token auth setup (backend)
+## devise token auth setup (backend)
  1. add to gem file
  
- #using this in our gemfile might want to use version <6.2> of rails) 
+ #using this in our gemfile (might want to use version < 6.2 of rails)  if higher then version 6.2, place the following in the gem file:  
+ 
+ ```
+ gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/devise_token_auth"
 
+ ```
+ 2. create a devise model 
+ ```
+ # this creating  a devise 'User' model and some routes
+ rails g devise_token_auth:install User api/auth
+
+ ```
+ 3. add extends in model 
+ ```
+class User < ActiveRecord::Base
+  extend Devise::Models
+  ....
+
+ ```
+ 4. add columns to our User via a migration
+ ```
+# create a migration file called TIMESTAMP_add_trackable_to_users.rb
+rails g migration add_trackable_to_users
+class AddTrackableToUsers < ActiveRecord::Migration[6.0]
+  def change
+      ## Trackable
+      add_column :users, :sign_in_count, :integer, :default => 0
+      add_column :users, :current_sign_in_at, :datetime
+      add_column :users, :last_sign_in_at, :datetime
+      add_column :users, :current_sign_in_ip, :string
+      add_column :users, :last_sign_in_ip, :string
+  end
+end
+ ```
+ * in terminal: 
 ```
 $ rails db:migrate
 ```
