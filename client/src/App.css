@@ -23,6 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.btn-spacing {
+  padding: 2px; 
+  margin: 5px; 
+
+}
 
 .Nav-link {
   margin: 5px; 

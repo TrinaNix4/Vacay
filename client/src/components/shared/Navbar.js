@@ -15,8 +15,10 @@ const NavbarComp  = () => {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        {/* TODO add path for login  */}
+        <Nav.Link href="#link">Login</Nav.Link>  
+        <Nav.Link href="/register">Register</Nav.Link>
+        <NavDropdown title="More" id="basic-nav-dropdown">
           <NavDropdown.Item href="/">Home</NavDropdown.Item>
           <NavDropdown.Item href="/login">Login</NavDropdown.Item>
           <NavDropdown.Item href="/register">Register</NavDropdown.Item>

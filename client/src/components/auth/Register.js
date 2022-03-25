@@ -1,5 +1,6 @@
 import { useState, useContext } from "react"
 import { AuthContext } from "../../providers/AuthProvider"
+import Button from "react-bootstrap/Button"
 
 const Register = () => {
   const [email, setEmail] = useState('')
@@ -26,11 +27,12 @@ const Register = () => {
     to prevent the default */}
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <p>Email</p>
-        <input value={email} onChange={(e)=> setEmail(e.target.value)}/>
-      <p>Password</p>
-        <input value={password} onChange={(e)=> setPassword(e.target.value)}/> 
-      <button>Register</button>
+        <p></p>
+        <input placeholder= "Email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+      <p></p>
+        <input placeholder= "Password" value={password} onChange={(e)=> setPassword(e.target.value)}/> 
+      <br></br>
+      <Button className="btn-spacing" size="sm" variant="dark">Register</Button>
       </form>
     </div>
   )
