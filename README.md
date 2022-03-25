@@ -74,8 +74,12 @@ NOTE: to add a gem... add it to your gemfile, then run bundle to install gem
 class User < ActiveRecord::Base
   extend Devise::Models
   ....
+```
 
- ```
+
+NOTE: check the following link if you have any troubles with the above devise commands: https://stackoverflow.com/questions/55626625/devise-token-auth-conflicts
+
+ 
  4. add columns to our User via a migration
  ```
 # create a migration file called TIMESTAMP_add_trackable_to_users.rb
@@ -117,6 +121,7 @@ yarn create react-app client
 //in client directory 
 $ yarn add react-router-dom axios 
 $ yarn add react-bootstrap bootstrap@5.1.3 
+$ yarn add axios 
  
 ```
 # add proxy
