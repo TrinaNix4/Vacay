@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-//review of providers 
 //create context from react 
 //createContext => {Consumer, Provider}
 //a way to 'consume' data and a way to 'provide' data
@@ -15,11 +14,13 @@ export const AuthContext = React.createContext()
 const AuthConsumer = AuthContext.Consumer
 
 //create Provider 
-//create state with a null user because a null user is a not auth user (not logged)
+//create a user object in stsate; null user is a not auth user (not logged in)
 //if i have a user, they will be authenticated 
 const AuthProvider = ({children})=> {
   const [user, setUser] = useState(null); 
 
+
+    //register
   //called on submit on a register page; expects to be given a user
   const handleRegister = async (user) => {
     try{          //check routes look for 'registrations create a new registration' 

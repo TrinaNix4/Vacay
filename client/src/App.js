@@ -7,6 +7,8 @@ import Register from './components/auth/Register';
 import NoMatch from './components/shared/NoMatch';
 import Navbar from './components/shared/Navbar';
 import HomeClass from './components/shared/HomeClass';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from './components/shared/Navbar';
 
 
 
@@ -14,7 +16,7 @@ import HomeClass from './components/shared/HomeClass';
 function App() {
   return (
     <div>
-      <Navbar />
+      <NavbarComp/>
       <>
       <Routes>
         <Route path='/' element={<Home />}/>
