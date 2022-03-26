@@ -3,8 +3,8 @@ import { AuthContext } from "../../providers/AuthProvider"
 import Button from "react-bootstrap/Button"
 
 const Register = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('test2@test.com')
+  const [password, setPassword] = useState('123456')
   const auth = useContext(AuthContext)
   //not needed but nice for UX
   //const [confirmPassword, setConfirmPassword] = useState('')
@@ -32,7 +32,7 @@ const Register = () => {
       <p></p>
         <input placeholder= "Password" value={password} onChange={(e)=> setPassword(e.target.value)}/> 
       <br></br>
-      <Button className="btn-spacing" size="sm" variant="dark">Register</Button>
+      <Button onClick={handleSubmit} className="btn-spacing" size="sm" variant="dark">Register</Button>
       </form>
     </div>
   )
