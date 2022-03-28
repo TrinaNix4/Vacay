@@ -9,8 +9,7 @@ import AuthProvider from './providers/AuthProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
  import { initMiddleware } from 'devise-axios';
 
-
-
+//this going to get token 
 initMiddleware(); 
 
 

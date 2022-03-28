@@ -26,13 +26,20 @@ const AuthProvider = ({children})=> {
 
     //register
   //called on submit on a register page; expects to be given a user
+  //no token needed from user; 
    const handleRegister = async (user) => {
     try{          //check routes look for 'registrations create a new registration' 
        let res = await axios.post('/api/auth', user)
+       //res.data.data is the 'user' 
+       //behind the scenes, there is also a token being 
+       ///sent back here that devise-axios 
+       //is keeping track of 
        setUser(res.data.data)
         //once logged in, just take them to the homepage '/'
        navigate ('/')
     }catch(err){
+      //potentially a lot of work here to let the user know
+      //exactly what error is occurring 
     alert('error: unable to register.')
     console.log(err)
    }
@@ -58,8 +65,12 @@ const handleLogin = async (user) => {
   try{          //check routes look for 'registrations create a new registration' 
        
     //need to send token: done with help initmiddleware
+    //token is what will be used to find the user
+
     let res = await axios.delete('/api/auth/sign_out')
-    //user not logged in is null    
+    //user not logged in is null  
+    //signing out so no token given back; destroy the token
+    //that's how a user is signed out   
     setUser(null)
         //once logged in, just take them to the homepage '/'
        navigate ('/')

@@ -24,6 +24,7 @@ const FetchUser = (props) => {
     //1st -- do you have a user? and also check if you do not have an access token
     //if you do have a user OR you don't have a user (don't have the token)
     if (user || !localStorage.getItem("access-token")) {
+      console.log('user found or no token')
       //once loaded is true..then we can render the route (on line 46)
       setLoaded(true);
       return;
@@ -32,9 +33,13 @@ const FetchUser = (props) => {
     // user is not authenticated but has access-token in local storage
     // let's check if it is valid if it, will grab and set user
     try {
+      //token sent (need this to validate)
       const res = await axios.get("/api/auth/validate_token");
+      //token was valid, res.data.data is the 'user' data so 
+      //lets set the user to that 
       setUser(res.data.data);
     } catch (err) {
+      //token was not valid; 
       console.log(err);
       console.log("unable to validate token");
     } finally {
