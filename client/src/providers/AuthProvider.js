@@ -33,14 +33,44 @@ const AuthProvider = ({children})=> {
         //once logged in, just take them to the homepage '/'
        navigate ('/')
     }catch(err){
-    alert('error')
+    alert('error: unable to register.')
+    console.log(err)
+   }
+   }
+const handleLogin = async (user) => {
+  console.log('going to login user in handleLogin:', user)  
+  try{          //check routes look for 'registrations create a new registration' 
+       
+    //this call will give us back user from DB
+    //assuming email and pw are correct 
+    let res = await axios.post('/api/auth/sign_in', user)
+       setUser(res.data.data)
+        //once logged in, just take them to the homepage '/'
+       navigate ('/')
+    }catch(err){
+    alert('error:unable to login. ')
     console.log(err)
    }
    }
 
+   const handleLogout = async () => {
+  console.log('going to logout user in handleLogout:')  
+  try{          //check routes look for 'registrations create a new registration' 
+       
+    //need to send token: done with help initmiddleware
+    let res = await axios.delete('/api/auth/sign_out')
+    //user not logged in is null    
+    setUser(null)
+        //once logged in, just take them to the homepage '/'
+       navigate ('/')
+    }catch(err){
+    alert('error:unable to logout. did you send the token? ')
+    console.log(err)
+   }
+   }
   
   return(         //no longer hard code this (e.g.{user:{email:'test@test.com'}})
-    <AuthContext.Provider value={{user, handleRegister}}>
+    <AuthContext.Provider value={{user, setUser, handleRegister, handleLogin, handleLogout}}>
     {children}
     </AuthContext.Provider>
   )
