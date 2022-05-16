@@ -36,7 +36,7 @@ const AuthProvider = ({children})=> {
        //is keeping track of 
        setUser(res.data.data)
         //once logged in, just take them to the homepage '/'
-       navigate ('/')
+       navigate ('/home')
     }catch(err){
       //potentially a lot of work here to let the user know
       //exactly what error is occurring 
@@ -53,7 +53,7 @@ const handleLogin = async (user) => {
     let res = await axios.post('/api/auth/sign_in', user)
        setUser(res.data.data)
         //once logged in, just take them to the homepage '/'
-       navigate ('/')
+       navigate ('/home')
     }catch(err){
     alert('error:unable to login. ')
     console.log(err)

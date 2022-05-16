@@ -9,7 +9,7 @@ class HomeClass extends React.Component {
   render() {
     return(
     <div>
-      <h1>Home Class</h1> 
+      <h1>Welcome {this.props.user.email}!</h1> 
       {/* grab the actual email from authprovider page */}
       <p>hello {this.props.user.email}</p>
       <p>{JSON.stringify(this.props)}</p>

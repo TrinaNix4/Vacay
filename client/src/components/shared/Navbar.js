@@ -35,14 +35,11 @@ const Navbar = () => {
       );
     }
   };
-  
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>
       {renderLeft()}
         <Link className="Nav-link" to="/">Home</Link>
-        {renderLeft()}
-
       </div>
       <div>{renderRightNav()}</div>
     </div>
