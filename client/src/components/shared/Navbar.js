@@ -31,15 +31,17 @@ const Navbar = () => {
       return (
         <>
           <Link className="Nav-link" to="/home">Home Protected</Link>
+          <Link className="Nav-link" to="/edit_profile">Edit Profile</Link>
         </>
       );
     }
   };
+  
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>
       {renderLeft()}
-        <Link className="Nav-link" to="/">Home</Link>
+        <Link className="Nav-link" to="/">Landing Page</Link>
       </div>
       <div>{renderRightNav()}</div>
     </div>
