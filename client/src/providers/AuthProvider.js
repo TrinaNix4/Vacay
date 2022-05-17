@@ -30,10 +30,6 @@ const AuthProvider = ({children})=> {
    const handleRegister = async (user) => {
     try{          //check routes look for 'registrations create a new registration' 
        let res = await axios.post('/api/auth', user)
-       //res.data.data is the 'user' 
-       //behind the scenes, there is also a token being 
-       ///sent back here that devise-axios 
-       //is keeping track of 
        setUser(res.data.data)
         //once logged in, just take them to the homepage '/'
        navigate ('/home')
