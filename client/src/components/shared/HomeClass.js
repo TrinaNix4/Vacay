@@ -9,9 +9,9 @@ class HomeClass extends React.Component {
   render() {
     return(
     <div>
-      <h1>Welcome {this.props.user.email}!</h1> 
+      <h1>Welcome {this.props.user.nickname}!</h1> 
       {/* grab the actual email from authprovider page */}
-      <p>hello {this.props.user.email}</p>
+      <p>Hello, {this.props.user.name}</p>
       <p>{JSON.stringify(this.props)}</p>
     </div>
   )
