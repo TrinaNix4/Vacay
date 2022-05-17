@@ -3,7 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider"
 import Button from "react-bootstrap/Button"
 
 const Login = () => {
-  const [email, setEmail] = useState('test2@test.com')
+  const [email, setEmail] = useState('thecrow@gmail.com')
   const [password, setPassword] = useState('123456')
   const auth = useContext(AuthContext)
   //not needed but nice for UX
