@@ -2,7 +2,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Routes, Route, useParams} from 'react-router-dom'; 
-import Home from './components/shared/Home';
+import Home from './components/shared/LandingPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import NoMatch from './components/shared/NoMatch';
@@ -11,6 +11,7 @@ import HomeClass from './components/shared/HomeClass';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FetchUser from './components/shared/FetchUser';
 import ProtectedRoute from './components/shared/ProtectRoute';
+import EditProfile from './components/auth/EditProfile';
 
 
 //Fetch User: going to see if the user is logged in(valid user?)
@@ -38,6 +39,7 @@ function App() {
         otherwise, you go to the login page */}
       <Route element= {<ProtectedRoute />}> 
         <Route path='/home' element={<HomeClass yo={'yoyo'}/>}/> 
+        <Route path='/edit_profile' element={<EditProfile/>}/> 
         </Route>
         <Route path='*' element={<NoMatch />}/>
       </Routes>
