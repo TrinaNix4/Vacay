@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_05_17_195841) do
     t.string "image"
     t.string "email"
     t.json "tokens"
+    t.bigint "group_id", null: false 
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "sign_in_count", default: 0
@@ -52,6 +53,9 @@ ActiveRecord::Schema.define(version: 2022_05_17_195841) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+    t.index ["group_id"], name: "index_users_on_group_id"
   end
+
+add_foreign_key "users", "groups"
 
 end
