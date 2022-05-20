@@ -1,5 +1,4 @@
 
-import logo from './logo.svg';
 import './App.css';
 import {Routes, Route, useParams} from 'react-router-dom'; 
 import Home from './components/shared/LandingPage';
@@ -12,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FetchUser from './components/shared/FetchUser';
 import ProtectedRoute from './components/shared/ProtectRoute';
 import EditProfile from './components/auth/EditProfile';
+import Groups from './components/shared/Groups';
 
 
 //Fetch User: going to see if the user is logged in(valid user?)
@@ -34,6 +34,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
         <Route path='/' element={<Home />}/>
+        <Route path='/groups' element={<Groups />}/>
         
         {/* protected  routes inside here need to be logged in
         otherwise, you go to the login page */}
