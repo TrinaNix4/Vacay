@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import {AuthConsumer} from "../../providers/AuthProvider"
 //this is a class so cannot use hooks here
 //instead of using hook useContext(AuthContext)
@@ -13,6 +14,8 @@ class HomeClass extends React.Component {
       {/* grab the actual email from authprovider page */}
       <p>Hello, {this.props.user.name}</p>
       <p>{JSON.stringify(this.props)}</p>
+
+      <Link to={`/groups`}>All Groups</Link>
     </div>
   )
 }
