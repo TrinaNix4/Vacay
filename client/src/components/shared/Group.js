@@ -1,8 +1,10 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Group = (props) => {
-const {name, location, image} = props; 
+  const navigate = useNavigate()
+const {name, id, location, image} = props; 
 
   return(
     <div>
@@ -10,6 +12,7 @@ const {name, location, image} = props;
       <p>name: {name}</p>
       <p>location: {location}</p>
       <p>image: {image}</p>
+      <Link to={`/groups/${id}`}>Show</Link>
       
     </div>
   )
