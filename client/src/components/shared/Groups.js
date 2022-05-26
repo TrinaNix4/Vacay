@@ -21,7 +21,7 @@ const Groups = () => {
 
 return (
   <div>
-    <h1>Groups</h1>
+    <h1>All Groups</h1>
     <div>
       {renderGroups()}
     </div>
